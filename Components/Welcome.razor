@@ -36,12 +36,15 @@ else
         {
             var user = await teamsUserCredential.GetUserInfoAsync();
             userName = user.DisplayName;
-            isLoading = false;
-            StateHasChanged();
         }
         catch (Exception e)
         {
             errorMessage = e.Message;
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
         }
     }
 }
